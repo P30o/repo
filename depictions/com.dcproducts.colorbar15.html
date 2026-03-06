@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ColorBar15 - Ghost Repo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* الهيدر مع تدرج حديث */
+        .header-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 32px;
+            overflow: hidden;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: transform 0.5s ease;
+        }
+        
+        .header-wrapper:hover .header-image {
+            transform: scale(1.05);
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+        }
+        
+        /* الأيقونة الرئيسية */
+        .icon-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: -80px auto 30px;
+            z-index: 10;
+        }
+        
+        .main-icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.15);
+            border: 4px solid white;
+            object-fit: cover;
+        }
+        
+        /* البطاقات */
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* العنوان */
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .app-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        
+        .app-subtitle {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f1f5f9;
+            padding: 16px 24px;
+            border-radius: 60px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        /* شبكة لقطات الشاشة */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+        
+        .screenshot-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 9/16;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+            border: 2px solid white;
+        }
+        
+        .screenshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .screenshot-item:hover .screenshot {
+            transform: scale(1.05);
+        }
+        
+        .screenshot-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .screenshot-item:hover .screenshot-overlay {
+            opacity: 1;
+        }
+        
+        /* الأزرار */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 30px 0 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 18px 28px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            gap: 10px;
+            letter-spacing: 0.3px;
+        }
+        
+        .btn-primary {
+            background: #0f172a;
+            color: white;
+            box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.2);
+        }
+        
+        .btn-primary:hover {
+            background: #1e293b;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -8px rgba(15, 23, 42, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+        }
+        
+        .btn i {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .size-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 60px;
+            font-size: 14px;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+        
+        /* شبكة المعلومات */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 18px 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        
+        .info-card:hover {
+            background: white;
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+        
+        .info-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .info-label i {
+            font-size: 14px;
+            color: #334155;
+        }
+        
+        .info-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        /* changelog */
+        .changelog-wrapper {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .changelog-item {
+            line-height: 1.7;
+            color: #334155;
+        }
+        
+        .changelog-item p {
+            margin-bottom: 10px;
+        }
+        
+        .version-tag {
+            display: inline-block;
+            background: #0f172a;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        /* الروابط الاجتماعية */
+        .social-section {
+            text-align: center;
+        }
+        
+        .social-grid {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin: 24px 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: 56px;
+            height: 56px;
+            border-radius: 18px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            text-decoration: none;
+            font-size: 22px;
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .social-link:hover {
+            background: #0f172a;
+            color: white;
+            transform: translateY(-4px);
+            border-color: #0f172a;
+        }
+        
+        .repo-badge {
+            margin-top: 24px;
+            padding: 16px;
+            background: #f1f5f9;
+            border-radius: 60px;
+            display: inline-block;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .repo-badge span {
+            color: #0f172a;
+            font-weight: 500;
+        }
+        
+        /* التذييل */
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer i {
+            color: #334155;
+            margin: 0 4px;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
+            }
+            
+            .header-wrapper {
+                height: 180px;
+                margin-bottom: 70px;
+            }
+            
+            .icon-wrapper {
+                width: 100px;
+                height: 100px;
+                margin-top: -60px;
+            }
+            
+            .card {
+                padding: 24px;
+            }
+            
+            .app-title {
+                font-size: 28px;
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .app-subtitle {
+                font-size: 14px;
+                padding: 14px 18px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-link {
+                width: 48px;
+                height: 48px;
+                font-size: 18px;
+            }
+        }
+        
+        /* تحسينات إضافية */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.3px;
+        }
+        
+        .section-title i {
+            color: #475569;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 24px 0;
+        }
+        
+        /* تحسين الوضوح */
+        .text-muted {
+            color: #64748b;
+        }
+        
+        .fs-small {
+            font-size: 13px;
+        }
+        
+        .mt-2 {
+            margin-top: 8px;
+        }
+        
+        .mt-4 {
+            margin-top: 16px;
+        }
+    </style>
+    <!-- Font Awesome للايقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- تحسين الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر -->
+        <div class="header-wrapper">
+            <img src="https://iosghost.github.io/assets/coverghost.jpeg" alt="header" class="header-image">
+            <div class="header-overlay"></div>
+        </div>
+        
+        <!-- الأيقونة الرئيسية -->
+        <div class="icon-wrapper">
+            <img src="https://iosghost.github.io/assets/icon.jpeg" alt="icon" class="main-icon">
+        </div>
+        
+        <!-- بطاقة التطبيق الرئيسية -->
+        <div class="card">
+            <div class="title-section">
+                <h1 class="app-title">ColorBar15</h1>
+                <p class="app-subtitle">ColorBar15 allows you to personally style your status bar with colors and more.</p>
+            </div>
+            
+            <!-- لقطات الشاشة -->
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="https://iosghost.github.io/assets/screenshot1.jpeg" alt="screenshot 1" class="screenshot">
+                    <div class="screenshot-overlay"></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="https://iosghost.github.io/assets/screenshot2.jpeg" alt="screenshot 2" class="screenshot">
+                    <div class="screenshot-overlay"></div>
+                </div>
+            </div>
+            
+            <!-- أزرار التحميل -->
+            <div class="buttons-container">
+                <a href="https://iosghost.github.io/debs/com.dcproducts.colorbar15_1.1.0_iphoneos-arm64.deb" class="btn btn-primary" download>
+                    <i class="fas fa-arrow-down"></i>
+                    تحميل الاداة
+                    <span class="size-badge">468K</span>
+                </a>
+                
+                <a href="https://t.me/iosghost" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    قناة التيليجرام
+                </a>
+            </div>
+        </div>
+        
+        <!-- بطاقة المعلومات -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-cube"></i>
+                تفاصيل الاداة
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">
+                        <i class="fas fa-code"></i>
+                        المطور
+                    </div>
+                    <div class="info-value">GhostTechXx</div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-label">
+                        <i class="fas fa-wrench"></i>
+                        الصيانة
+                    </div>
+                    <div class="info-value">Repo Ghost</div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-label">
+                        <i class="fas fa-tag"></i>
+                        الاصدار
+                    </div>
+                    <div class="info-value">1.1.0</div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-label">
+                        <i class="fas fa-database"></i>
+                        الحجم
+                    </div>
+                    <div class="info-value">468K</div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-label">
+                        <i class="fas fa-microchip"></i>
+                        المعمارية
+                    </div>
+                    <div class="info-value">iphoneos-arm64</div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-label">
+                        <i class="fas fa-folder"></i>
+                        القسم
+                    </div>
+                    <div class="info-value">Tweaks</div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="section-title">
+                <i class="fas fa-history"></i>
+                سجل التحديثات
+            </div>
+            
+            <div class="changelog-wrapper">
+                <span class="version-tag">الاصدار 1.1.0</span>
+                <div class="changelog-item">
+                    • تم تحديث الأداة لتعمل بتوافق كامل مع Ghost Repo<br>• إصلاحات عامة وتحسين في الأداء البصري<br>• دعم كامل لـ Sileo و Zebra
+                </div>
+            </div>
+        </div>
+        
+        <!-- بطاقة التواصل -->
+        <div class="card social-section">
+            <div class="section-title" style="justify-content: center;">
+                <i class="fas fa-share-alt"></i>
+                روابط التواصل
+            </div>
+            
+            <div class="social-grid">
+                <a href="https://t.me/iosghost" class="social-link" target="_blank" title="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://x.com/ghosttechxx" class="social-link" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="http://iosghost.github.io" class="social-link" target="_blank" title="Website">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+            
+            <div class="repo-badge">
+                <span>
+                    <i class="fas fa-shield-alt" style="margin-left: 6px;"></i>
+                    Ghost Repo - المصدر الرسمي
+                </span>
+            </div>
+            
+            <div class="mt-4 text-muted fs-small">
+                <i class="fas fa-check-circle"></i>
+                جميع الملفات موثقة وآمنة
+            </div>
+        </div>
+        
+        <!-- التذييل -->
+        <div class="footer">
+            <i class="fas fa-ghost"></i>
+            GhostTechXx | 2026
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+ "class": "FeaturedBannersView",
+ "itemSize": "{263, 148}",
+ "itemCornerRadius": 10,
+ "banners": [
+  {
+   "url": "https://iosghost.github.io/assets/coverghost.jpeg",
+   "title": "Ghost Repo ✨",
+   "package": "https://x.com/ghosttechxx",
+   "hideShadow": false
+  },
+  {
+   "url": "https://iosghost.github.io/assets/coverghost.jpeg",
+   "title": "Ghost Repo ✨",
+   "package": "https://x.com/ghosttechxx",
+   "hideShadow": false
+  }
+ ]
+}

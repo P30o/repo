@@ -1,0 +1,19 @@
+## OS / Editor
+.DS_Store
+Thumbs.db
+
+## Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+## Secrets / runtime state (DO NOT COMMIT)
+.env
+data/
+bot_state.json
+bot_config.json
+github_config.json
+
+## Local scratch
+*.log

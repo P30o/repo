@@ -1,0 +1,85 @@
+Package: cn.octoforce.copyvault
+Name: CopyVault(激活码版)
+Version: 1.3.0
+Architecture: iphoneos-arm64
+Maintainer: Repo Ghost
+Author: GhostTechXx
+Section: Tweaks
+Icon: https://iosghost.github.io/assets/icon.jpeg
+Filename: debs/cn.octoforce.copyvault_1.3.0_iphoneos-arm64.deb
+Size: 3293674
+MD5sum: 200d99fe16264db13e4fb54f31cb1dd6
+SHA1: 933bf693e673493c2dccfa8f229c0bdb8f91d6b9
+SHA256: c4a80bad95d3ec6463521ce15dc6fa1026b5c642861d7be24f65c881f618de8f
+Description: 非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
+SileoDepiction: https://iosghost.github.io/depictions/cn.octoforce.copyvault.json
+Depiction: https://iosghost.github.io/depictions/cn.octoforce.copyvault.html
+
+Package: com.dcproducts.colorbar15
+Name: ColorBar15
+Version: 1.1.0
+Architecture: iphoneos-arm64
+Maintainer: Repo Ghost
+Author: GhostTechXx
+Section: Tweaks
+Icon: https://iosghost.github.io/assets/icon.jpeg
+Filename: debs/com.dcproducts.colorbar15_1.1.0_iphoneos-arm64.deb
+Size: 475202
+MD5sum: b7547abdafcb5afe8ecaadd8ba683286
+SHA1: d6111a577f6da62f00846601bbb7ae225fbd5a40
+SHA256: 98331405023346304dc472bd10bcb64b8a6fbb8feb1d09b9600fccef2876e404
+Description: ColorBar15 allows you to personally style your status bar with colors and more.
+SileoDepiction: https://iosghost.github.io/depictions/com.dcproducts.colorbar15.json
+Depiction: https://iosghost.github.io/depictions/com.dcproducts.colorbar15.html
+
+Package: com.sparklechan.swifty
+Name: FridaCodeManager
+Version: 1.6
+Architecture: iphoneos-arm64
+Maintainer: Repo Ghost
+Author: GhostTechXx
+Section: Utilities
+Icon: https://iosghost.github.io/assets/icon.jpeg
+Filename: debs/com.sparklechan.swifty_1.6_iphoneos-arm64.deb
+Size: 3166188
+MD5sum: cea3f6253222217ba0b22769084726e8
+SHA1: c7ae0352f4bba150057ec60b83478e2fb52cd651
+SHA256: 6700eff7c6fee3c11edd0d1ad67dcfa6990b718695f4c75cf0b9c1a5bee21e70
+Description: Full fledged Xcode-like IDE for iOS
+SileoDepiction: https://iosghost.github.io/depictions/com.sparklechan.swifty.json
+Depiction: https://iosghost.github.io/depictions/com.sparklechan.swifty.html
+
+Package: cm90.crossoveripc
+Name: CrossOverIPC ~ Rootless
+Version: 1.2-1
+Architecture: iphoneos-arm64
+Maintainer: Repo Ghost
+Author: GhostTechXx
+Section: Tweaks
+Icon: https://iosghost.github.io/assets/icon.jpeg
+Filename: debs/crossoveripcdopamine_1.2-1_iphoneos-arm64.deb
+Size: 12966
+MD5sum: 34969ca63ba665dce54a3ec58b6caa96
+SHA1: b3ff051ba33093ecf0c42289c5caa3d4005e043c
+SHA256: d763b16c5e0b9cc9f0987b5811517200b9a023860c2062eecfedad787912f097
+Description: A cross-process communication tool for sending and receiving messages on iOS 15 & 16 for rootless JBs
+SileoDepiction: https://iosghost.github.io/depictions/cm90.crossoveripc.json
+Depiction: https://iosghost.github.io/depictions/cm90.crossoveripc.html
+
+Package: fr.rootfs.rode
+Name: Rode
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: Repo Ghost
+Author: GhostTechXx
+Section: Tweaks
+Icon: https://iosghost.github.io/assets/icon.jpeg
+Filename: debs/fr.rootfs.rode_1.0_iphoneos-arm64.deb
+Size: 305452
+MD5sum: 914e547d2bc5980a8aaa6e05437f0f16
+SHA1: e50ded7bd842a563c242b5734bc45469beeec16d
+SHA256: f670549016bcbc68623c69e9c250c8e1ae53e9d4d96465c688d804a61cb34eb9
+Description: Scramble the passcode view on your lockscreen!
+SileoDepiction: https://iosghost.github.io/depictions/fr.rootfs.rode.json
+Depiction: https://iosghost.github.io/depictions/fr.rootfs.rode.html
+

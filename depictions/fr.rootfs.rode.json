@@ -1,0 +1,51 @@
+{
+  "class": "DepictionTabView",
+  "headerImage": "https://iosghost.github.io/assets/coverghost.jpeg",
+  "tintColor": "#9A58E4",
+  "tabs": [
+    {
+      "class": "DepictionStackView",
+      "tabname": "Details",
+      "views": [
+        { "class": "DepictionHeaderView", "title": "Rode" },
+        { "class": "DepictionSubheaderView", "title": "Scramble the passcode view on your lockscreen!" },
+        {
+          "class": "DepictionScreenshotsView",
+          "itemCornerRadius": 14,
+          "itemSize": "{160, 346}",
+          "screenshots": [
+            { "url": "https://iosghost.github.io/assets/screenshot1.jpeg", "accessibilityText": "Screenshot 1" },
+            { "url": "https://iosghost.github.io/assets/screenshot2.jpeg", "accessibilityText": "Screenshot 2" }
+          ]
+        },
+        {
+          "class": "DepictionReviewButtonView",
+          "title": "انضم إلى عالمنا على Telegram 🚀",
+          "action": "https://t.me/iosghost",
+          "tintColor": "#9A58E4"
+        },
+        { "class": "DepictionHeaderView", "title": "Information" },
+        { "class": "DepictionTableTextView", "title": "Developer", "text": "GhostTechXx" },
+        { "class": "DepictionTableTextView", "title": "Maintainer", "text": "Repo Ghost" },
+        { "class": "DepictionTableTextView", "title": "Version", "text": "1.0" },
+        { "class": "DepictionTableTextView", "title": "Size", "text": "300K" },
+        { "class": "DepictionHeaderView", "title": "Official Links" },
+        { "class": "DepictionTableButtonView", "title": "Twitter (X)", "action": "https://x.com/ghosttechxx" },
+        { "class": "DepictionTableButtonView", "title": "Telegram Channel", "action": "https://t.me/iosghost" },
+        { "class": "DepictionIconView", "iconImage": "https://iosghost.github.io/assets/icon.jpeg" },
+        { "class": "DepictionSpacerView", "spacing": 20 }
+      ]
+    },
+    {
+      "class": "DepictionStackView",
+      "tabname": "Changelog",
+      "views": [
+        { "class": "DepictionHeaderView", "title": "آخر التحديثات - 1.0" },
+        { "class": "DepictionSubheaderView", "title": "• تم تحديث الأداة لتعمل بتوافق كامل مع Ghost Repo\n• إصلاحات عامة وتحسين في الأداء البصري\n• دعم كامل لـ Sileo و Zebra" },
+        { "class": "DepictionHeaderView", "title": "Special Signature" },
+        { "class": "DepictionTableTextView", "title": "Ghost Identity", "text": " GhostTechXx" },
+        { "class": "DepictionSpacerView", "spacing": 20 }
+      ]
+    }
+  ]
+}
