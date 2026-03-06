@@ -1,29 +1,9 @@
-Origin: Ghost Repo ✨
-Label: Ghost Repo ✨
+Origin: Ghost bot
+Label: Ghost bot
 Suite: stable
 Version: 1.0
 Codename: ios
 Architectures: iphoneos-arm iphoneos-arm64
 Components: main
-Description: 🔮 المصدر الرسمي والوحيد لأدوات GhostTechXx - جودة واستقرار بلا حدود
-MD5Sum:
- 49db668ecb57849e45b68113b981f72f 1975 Packages
- 744db788a33236fc1e9de4d6e8bfd7d4 796 Packages.gz
- 974b5c719624df337e1a0674be0a9647 905 Packages.bz2
- 6a6e03a1f88759a0b480ec72c37d5198 860 Packages.xz
- e2f0f5c6a9457961e24df1d58e5a2435 812 Packages.lzma
- 68a1762b7b640407ff17a6e0ada3945a 789 Packages.zst
-SHA1:
- cad5dd4136cf0275a1fc43d792d1e11ae910e01a 1975 Packages
- 6448b51b8c261294767e11e0ef03c4a0a79c5cbb 796 Packages.gz
- 34b6f3e2b9e503cf634a7092ba74251534bee7b5 905 Packages.bz2
- 402638848787728d172888929b43b5c5eb6541c1 860 Packages.xz
- b509b2e5a150efa8f8227b96f3e55075a36818b3 812 Packages.lzma
- e1751e6714b84d2e0ff5cd4f95ad7327270a93b4 789 Packages.zst
-SHA256:
- 23ad86d6779ab773bca4daea4e5916fec37d0fc3b76d40c9f8616cf5842afb9e 1975 Packages
- 973c952f289604aac6d7eaeda9b1cc6264f5b11e27afd6e4562c2aef5861206a 796 Packages.gz
- 4fac62728b0e096f1622679b61af439275dbe857f467ff38b24c6f832a4780ef 905 Packages.bz2
- 6b85813f3e1046a0353c16c761cb6db46033e8b8969fe993b9b517cee45fd2df 860 Packages.xz
- a37ead15cd17482f0755be2e174d3dd98e77b809a871aeea8b247f8f77139260 812 Packages.lzma
- 4e1ee63a6dedb448706a3f314a154d32df8c52e6e88cb9a7202285af349aeabc 789 Packages.zst
+Description: Ghost Bot telegram test 
+To upload the tools on Yursk
